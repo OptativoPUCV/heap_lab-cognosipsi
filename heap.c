@@ -42,8 +42,8 @@ void heap_push(Heap* pq, void* data, int priority){
 void heap_pop(Heap* pq){
     int actual = 0;
     while (pq->heapArray[2 * actual + 2].data != NULL) {
-        pq->heapArray[actual] = pq->heapArray[2 * actual + 2];
         actual = 2 * actual + 2;
+        pq->heapArray[actual] = pq->heapArray[2 * actual + 2];
     }
     pq->heapArray[0].priority = pq->heapArray[actual].priority;
     pq->heapArray[0].data = pq->heapArray[actual].data;
