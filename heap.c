@@ -43,8 +43,8 @@ void heap_pop(Heap* pq){
     int actual;
     heapElem aux;
 
-    pq->heapArray[0].priority = pq->heapArray[pq->size].priority;
-    pq->heapArray[0].data = pq->heapArray[pq->size].data;
+    pq->heapArray[0].priority = pq->heapArray[pq->size-1].priority;
+    pq->heapArray[0].data = pq->heapArray[pq->size-1].data;
     pq->size--;
     actual = 0;
     while ((2 * actual + 1 == pq->size) || (2 * actual + 2 == pq->size)) {
