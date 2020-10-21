@@ -44,6 +44,12 @@ void heap_pop(Heap* pq){
 }
 
 Heap* createHeap(){
+    Heap *h = (Heap*) malloc (sizeof(Heap));
+    h->size = 0;
+    h->capac = 3;
+    h->heapArray = realloc (h->heapArray, h->capac);
+    h->heapArray[h->size].priority = 1;
+    h->heapArray[h->size].data = NULL;
 
-   return NULL;
+    return h;
 }
