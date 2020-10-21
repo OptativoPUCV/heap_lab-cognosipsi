@@ -18,7 +18,7 @@ typedef struct Heap{
 
 
 void* heap_top(Heap* pq){
-    if (pq->size == 0) return NULL;
+    if(pq->size==0) return NULL;
     return pq->heapArray[0].data;
 }
 
@@ -45,12 +45,13 @@ void heap_pop(Heap* pq){
 }
 
 Heap* createHeap(){
-    Heap *h = (Heap*) malloc (sizeof(Heap));
+    /*Heap *h = (Heap*) malloc (sizeof(Heap));
     h->size = 0;
     h->capac = 3;
     h->heapArray = realloc (h->heapArray, h->capac);
-    /*h->heapArray[h->size].priority = 1;
-    h->heapArray[h->size].data = NULL;*/
+    h->heapArray[h->size].priority = 1;
+    h->heapArray[h->size].data = NULL;
 
-    return h;
+    return h;*/
+    return NULL;
 }
