@@ -45,10 +45,10 @@ void heap_pop(Heap* pq){
 
     pq->heapArray[0].priority = pq->heapArray[pq->size-1].priority;
     pq->heapArray[0].data = pq->heapArray[pq->size-1].data;
-    pq->heapArray[pq->size-1].data = NULL;
     pq->size--;
     actual = 0;
-    while (pq->heapArray[2 * actual + 1].data != NULL) {
+    while ((pq->heapArray[actual].priority < pq->heapArray[2 * actual + 1].priority) && (pq->heapArray[actual].priority < pq->heapArray[2 * actual + 2].priority)) {
+        if (2 * actual +1==pq->size || 2 * actual +2==pq->size) return;
         if (pq->heapArray[actual].priority < pq->heapArray[2 * actual + 2].priority) {
             aux = pq->heapArray[actual];
             pq->heapArray[actual].priority = pq->heapArray[2 * actual + 2].priority;
