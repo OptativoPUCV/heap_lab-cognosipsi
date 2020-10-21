@@ -48,7 +48,7 @@ Heap* createHeap(){
     Heap *h = (Heap*) malloc (sizeof(Heap));
     h->size = 0;
     h->capac = 3;
-    h->heapArray = (heapElem *) malloc (sizeof(heapElem));
+    h->heapArray = (heapElem*) calloc (3,sizeof(heapElem));
     h->heapArray[h->size].priority = 1;
     h->heapArray[h->size].data = NULL;
 
