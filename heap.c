@@ -65,7 +65,6 @@ void heap_pop(Heap* pq){
             pq->heapArray[2 * actual + 1].data = aux.data;
             actual = 2 * actual + 1;
         }
-        else return;
     }
 }
 
