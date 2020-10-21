@@ -48,14 +48,6 @@ void heap_pop(Heap* pq){
     pq->size--;
     actual = 0;
     while (pq->heapArray[2 * actual + 1].data != NULL) {
-        if (pq->heapArray[actual].priority < pq->heapArray[2 * actual + 1].priority) {
-            aux = pq->heapArray[actual];
-            pq->heapArray[actual].priority = pq->heapArray[2 * actual + 1].priority;
-            pq->heapArray[actual].data = pq->heapArray[2 * actual + 1].data;
-            pq->heapArray[2 * actual + 1].priority = aux.priority;
-            pq->heapArray[2 * actual + 1].data = aux.data;
-            actual = 2 * actual + 1;
-        }
         if (pq->heapArray[actual].priority < pq->heapArray[2 * actual + 2].priority) {
             aux = pq->heapArray[actual];
             pq->heapArray[actual].priority = pq->heapArray[2 * actual + 2].priority;
@@ -63,6 +55,14 @@ void heap_pop(Heap* pq){
             pq->heapArray[2 * actual + 2].priority = aux.priority;
             pq->heapArray[2 * actual + 2].data = aux.data;
             actual = 2 * actual + 2;
+        }
+        if (pq->heapArray[actual].priority < pq->heapArray[2 * actual + 1].priority) {
+            aux = pq->heapArray[actual];
+            pq->heapArray[actual].priority = pq->heapArray[2 * actual + 1].priority;
+            pq->heapArray[actual].data = pq->heapArray[2 * actual + 1].data;
+            pq->heapArray[2 * actual + 1].priority = aux.priority;
+            pq->heapArray[2 * actual + 1].data = aux.data;
+            actual = 2 * actual + 1;
         }
         else return;
     }
