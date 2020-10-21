@@ -40,7 +40,7 @@ void heap_push(Heap* pq, void* data, int priority){
 }
 
 void heap_pop(Heap* pq){
-    /*int actual = 0;
+    int actual = 0;
     int priority;
     void* data;
     while (pq->heapArray[2 * actual + 2].data != NULL) {
@@ -61,7 +61,8 @@ void heap_pop(Heap* pq){
             pq->heapArray[2 * actual + 2].data = data;
             actual = 2 * actual + 2;
         }
-    }*/
+        else return;
+    }
 }
 
 Heap* createHeap(){
