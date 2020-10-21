@@ -47,8 +47,8 @@ void heap_pop(Heap* pq){
     pq->heapArray[0].data = pq->heapArray[pq->size-1].data;
     pq->size--;
     actual = 0;
-    while ((pq->heapArray[actual].priority < pq->heapArray[2 * actual + 1].priority) && (pq->heapArray[actual].priority < pq->heapArray[2 * actual + 2].priority)) {
-        if (2 * actual +1==pq->size || 2 * actual +2==pq->size) return;
+    while ((pq->heapArray[actual].priority < pq->heapArray[2 * actual + 1].priority) || (pq->heapArray[actual].priority < pq->heapArray[2 * actual + 2].priority)) {
+        if (2 * actual + 1 == pq->size || 2 * actual + 2 == pq->size) return;
         if (pq->heapArray[actual].priority < pq->heapArray[2 * actual + 2].priority) {
             aux = pq->heapArray[actual];
             pq->heapArray[actual].priority = pq->heapArray[2 * actual + 2].priority;
@@ -57,7 +57,7 @@ void heap_pop(Heap* pq){
             pq->heapArray[2 * actual + 2].data = aux.data;
             actual = 2 * actual + 2;
         }
-        else if (pq->heapArray[actual].priority < pq->heapArray[2 * actual + 1].priority) {
+        if (pq->heapArray[actual].priority < pq->heapArray[2 * actual + 1].priority) {
             aux = pq->heapArray[actual];
             pq->heapArray[actual].priority = pq->heapArray[2 * actual + 1].priority;
             pq->heapArray[actual].data = pq->heapArray[2 * actual + 1].data;
