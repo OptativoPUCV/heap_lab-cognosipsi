@@ -56,7 +56,7 @@ void heap_pop(Heap* pq){
             pq->heapArray[2 * actual + 2].data = aux.data;
             actual = 2 * actual + 2;
         }
-        if (pq->heapArray[actual].priority < pq->heapArray[2 * actual + 1].priority) {
+        else if (pq->heapArray[actual].priority < pq->heapArray[2 * actual + 1].priority) {
             aux = pq->heapArray[actual];
             pq->heapArray[actual].priority = pq->heapArray[2 * actual + 1].priority;
             pq->heapArray[actual].data = pq->heapArray[2 * actual + 1].data;
